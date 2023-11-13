@@ -1,5 +1,5 @@
 .bottom-nav {
-  border-top: 45px solid $dark-purple;
+  border-top: 45px solid $primary;
   padding-bottom: 5px;
 }
 
@@ -104,7 +104,7 @@
 }
 
 .large-logo img {
-  max-height: 64px;
+  max-height: 42px;
   margin-right: 1em
 }
 
@@ -362,7 +362,7 @@
 
   .top-nav {
     display: block;
-    border-top: 22px solid $dark-purple;
+    border-top: 22px solid $primary;
   }
 
    .top-nav.data {
