@@ -1,4 +1,84 @@
-# varnish 0.3.3.9000
+# varnish 1.0.2 (2023-04-10)
+
+## NEW FEATURES
+
+* The lesson page footer now supports either a CITATION or CITATION.cff file
+  (reported: @tobyhodges, implemented: @tobyhodges, #122;
+  @froggleston, https://github.com/carpentries/sandpaper/pull/572)
+* Add support for tabbed content in lessons 
+  (reported: @astroDimitrios,
+   implemented: @astroDimitrios, @froggleston,
+   https://github.com/carpentries/varnish/pull/121,
+   https://github.com/carpentries/sandpaper/pull/571,
+   https://github.com/carpentries/pegboard/pull/148
+  ).
+* Replace the problematic search box with a much simpler and functional solution
+  of taking the user to the All in One page where they can search using the 
+  browser's native search (Ctrl-F) 
+  (reported: @anenadic https://github.com/carpentries/workbench/issues/8,
+   implemented: @erinbecker #131
+  ).
+
+# varnish 1.0.1 (2023-12-14)
+
+## BUG FIX
+
+* Font sizes for headings of overview box, callouts, and accordions now use
+  relative units instead of pixels. This will cause a slight change in the
+  appearance of these headings, but they will be more consistent as the size of
+  the window changes.
+
+# varnish 1.0.0 (2023-12-13)
+
+## MAJOR VERSION NOTE
+
+We are bumping the major version number with this release because this version
+of {varnish} now requires a new set of `translate` variables to be passed (which
+are provided by sandpaper >= 0.16.0). If these variables do not exist, the
+template will contain no navigation text. 
+
+This breaking change is a concious decision. The alternative for this was to
+conditinally include translations and fall back to their hard-coded English text
+when they did not exist. This may seem like a more reasonable choice, but it can
+lead to upstream bugs that are difficult to detect (if translations are not
+working, it's not clear what is the cause if the text is in English: is it
+coming from {varnish} or is it coming from {sandpaper}?) and it makes
+maintenance of these navigational elements more difficult because we would have
+to update them in two places. 
+
+## NEW FEATURES
+
+* Translation of lesson elements is now incorporated. Translation strings within
+  the HTML templates can be found be searching for the word `translate`. All
+  variables are assumed to exist and are defined in The Workbench as PascalCase
+  variables. In order for this version of {varnish} to work, it _requires_
+  {sandpaper} version 0.16.0 or greater. **This is a breaking change**
+  (reported: @zkamvar, #104; implemented: @zkamvar and @joelnitta, #105)
+* Buttons to show/hide the sidebar and solutions now have extra data attributes
+  that are used for the language used by the button when they are toggled. This
+  is an improvement over hard-coding the phrases inside of the JavaScript.
+
+## BUG FIX
+
+* Overview box heading font sizes now scaled based on viewport size. This fixes
+  issues where the heading would wrap in an ugly fashion.
+  (reported: @jd-foster, #83, 
+  @drmownickles, https://github.com/carpentries/workbench/issues/57,
+  @rbavery, https://github.com/carpentries/workbench/issues/64, 
+  @robadob, #111; fixed:
+  @froggleston, #109, 
+  @robadob, #112).
+* Spacing and alignment of text improved in Software Carpentry logo.
+  (reported: @tobyhodges, #107; fixed @tobyhodges, #110).
+* Lesson title collision with search box resolved.
+  (reported: @ocasia, #84; fixed @robadob, #113).
+
+## MISC
+
+Added @joelnitta as a contributor.
+Added @robadob as a contributor.
+
+# varnish 0.4.0 (2023-11-29)
 
 * life cycle icons are now displayed as badges for better visibility
 * lessons that are stable with peer-reviewed doi releases will now have a doi
